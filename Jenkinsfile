@@ -1,20 +1,26 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:14'  // Replace with required image
+        }
+    }
     stages {
         stage('Build') {
             steps {
-                echo 'Building the project...'
+                sh 'node --version'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                sh 'echo "Running tests..."'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
+                sh 'echo "Deploying..."'
             }
-        }
-    }
+        }
+    }
+}
+
 }
